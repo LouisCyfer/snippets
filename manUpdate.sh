@@ -15,10 +15,8 @@ askUser ()
 		#response=${response,,}
 
 		case $response in
-		    j|J)
-			runCmd=true ;;
-		    *)
-			runCmd=false ;;
+		    j|J) runCmd=true;;
+		    *) runCmd=false;;
 		esac
 
 	fi
