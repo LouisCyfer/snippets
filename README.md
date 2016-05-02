@@ -3,8 +3,7 @@
 * de: Dieses Repo enthält einige Skripte und Code-Schnipsel und wird noch erweitert
 
 # manUpdate.sh
-* en: updating script running in Ubuntu 14.04
-* de:
+Ubuntu 14.04 update-script (will be multilingual in future)
 
 .. to be continued
 
