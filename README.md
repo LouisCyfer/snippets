@@ -5,6 +5,9 @@
 # manUpdate.sh
 Ubuntu 14.04 update-script (will be multilingual in future)
 
+# runKSP.sh
+small startup script for KSP under Linux :D
+
 .. to be continued
 
 feel free to use and/or mod this snippets (MIT licensed) :)
