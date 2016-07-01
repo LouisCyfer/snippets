@@ -11,7 +11,7 @@ small startup script for KSP under Linux :D
 ## RAMcleaner.sh
 will clean your RAM (basicly unloads system components off the RAM)
 
-###### CAUTION! this script is intended to be used in conky!
+>CAUTION! this script is intended to be used in conky!
 
 * set the max lowest RAM usage in the script (i assume 25% is just fair enough, otherwise mod that)
 * set ask to false if you wish not to get bothered by clicking yes/no
