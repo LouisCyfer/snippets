@@ -1,6 +1,6 @@
 ## snippets
-* en: this repo contains some useful scripts and code-snippets and is yet work in progress
-* de: Dieses Repo enthält einige Skripte und Code-Schnipsel und wird noch erweitert
+>* en: this repo contains some useful scripts and code-snippets and is yet work in progress
+>* de: Dieses Repo enthält einige Skripte und Code-Schnipsel und wird noch erweitert
 
 - [x] This repo is still WIP!
 - [x] MIT licensed
