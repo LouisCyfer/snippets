@@ -22,10 +22,8 @@ fi
 
 #possible params --> -force-opengl -force-opengl -force-gfx-direct
 kspParams="-force-opengl"
-# kspParams=""
 
-#
-preRun="taskset -c 2-3"
+preRun="" # preRun="taskset -c 2-3" --> forcing to set other cpu cores (for me it was not quite performance improving)
 
 goAhead=true
 optionID=0
@@ -129,8 +127,8 @@ else
 	echo 'running --> export LC_ALL=C'
 	export LC_ALL=C
 
-	# echo 'running --> export LD_PRELOAD="libpthread.so.0 libGL.so.1"'
-	# export LD_PRELOAD="libpthread.so.0 libGL.so.1"
+	echo 'running --> export LD_PRELOAD="libpthread.so.0 libGL.so.1"'
+	export LD_PRELOAD="libpthread.so.0 libGL.so.1"
 
 	echo 'running --> export __GL_THREADED_OPTIMIZATIONS=1'
 	export __GL_THREADED_OPTIMIZATIONS=1
