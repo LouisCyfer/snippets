@@ -21,7 +21,8 @@ if [ "$(uname -m)" = "x86_64" ]; then
 fi
 
 #possible params --> -force-opengl -force-opengl -force-gfx-direct
-kspParams="-force-opengl"
+kspParams=" -force-opengl"
+# kspParams=""
 
 preRun="" # preRun="taskset -c 2-3 " --> forcing to set other cpu cores (for me it was not quite performance improving)
 
@@ -31,14 +32,16 @@ kspPID=0
 
 clear
 
+info=""
+
 msg="32bit"
 if [ "$found64bit" = true ]; then
     msg="64bit"
 fi
 
-echo "found $msg OS $(uname -s) --> going to run $KSPapp $kspParams"
-echo ""
-echo "found $maxPathes path entries:"
+info="NOTE: found $msg OS $(uname -s), using '$KSPapp$kspParams' if you choose to start KSP"
+
+echo "$info"
 
 optionID=0
 options[0]=""
@@ -56,8 +59,6 @@ while [ $idx -lt $maxPathes ]; do
 	optionsStr="$optionsStr${options[$idx]}|"
     fi
 
-    echo "--> ${options[$idx]}/"
-
     let idx=idx+1
     # idx=$(($idx + 1))
 done
@@ -67,9 +68,8 @@ echo "[:: KSP Launcher | pick path ::]"
 echo ""
 echo "--> Wich folder you wish to use?"
 
-#if you addeed/removed, you have to edit this here: (i might have to figure a better way later)
-response=$(zenity --title="[:: KSP Launcher | pick path ::]" --width=600 --height=250 --list --radiolist --text="" \
---column="" --column="please pick a path" \
+response=$(zenity --title="[:: KSP Launcher | pick path ::]" --width=600 --height=250 --list --radiolist --text="$info" \
+--column="" --column="Wich folder you wish to use?" \
 TRUE "${options[0]}" FALSE "${options[1]}" FALSE "${options[2]}" FALSE "${options[3]}" FALSE "${options[4]}")
 
 case "$response" in
@@ -98,11 +98,11 @@ else
     echo "--> Wich application you wish to run?"
 
     optionID=0
-    options[0]="run KSP"
-    options[1]="run ckan.exe per mono"
+    options[0]="run '$KSPapp$kspParams'"
+    options[1]="run mono 'ckan.exe'"
 
-    response=$( zenity --title="[:: KSP Launcher | run application ::]" --width=600 --height=250 --list --radiolist --text="" \
-    --column="" --column="pick one of the following options" TRUE "${options[0]}" FALSE "${options[1]}" )
+    response=$( zenity --title="[:: KSP Launcher | run application ::]" --width=600 --height=250 --list --radiolist --text="$info" \
+    --column="" --column="Wich application you wish to run?" TRUE "${options[0]}" FALSE "${options[1]}" )
 
     case "$response" in
     ${options[0]} )		
@@ -133,9 +133,9 @@ else
 	echo 'running --> export __GL_THREADED_OPTIMIZATIONS=1'
 	export __GL_THREADED_OPTIMIZATIONS=1
 
-	echo "executing > $preRun./$KSPapp $kspParams &"
+	echo "executing > $preRun./$KSPapp$kspParams &"
 	sleep 2s
-	$preRun./$KSPapp $kspParams &
+	$preRun./$KSPapp$kspParams &
 
 	echo ""
 	sleep 1s
@@ -163,8 +163,9 @@ else
 
 	cd ;;
     2 )
+	echo ""
 	echo "[:: starting ckan.exe (Mono) ::]"
-	cd "$KSPpath" && mono "ckan.exe" && cd ;;
+	cd "$KSPpath" && mono 'ckan.exe' && cd ;;
     esac
 fi
 
