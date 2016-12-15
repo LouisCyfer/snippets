@@ -23,7 +23,7 @@ fi
 #possible params --> -force-opengl -force-opengl -force-gfx-direct
 kspParams="-force-opengl"
 
-preRun="" # preRun="taskset -c 2-3" --> forcing to set other cpu cores (for me it was not quite performance improving)
+preRun="" # preRun="taskset -c 2-3 " --> forcing to set other cpu cores (for me it was not quite performance improving)
 
 goAhead=true
 optionID=0
@@ -133,10 +133,9 @@ else
 	echo 'running --> export __GL_THREADED_OPTIMIZATIONS=1'
 	export __GL_THREADED_OPTIMIZATIONS=1
 
-	echo "using $preRun and running with params $kspParams"
-	echo "executing > $preRun ./$KSPapp $kspParams &"
+	echo "executing > $preRun./$KSPapp $kspParams &"
 	sleep 2s
-	$preRun ./$KSPapp $kspParams &
+	$preRun./$KSPapp $kspParams &
 
 	echo ""
 	sleep 1s
