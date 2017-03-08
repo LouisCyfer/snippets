@@ -8,7 +8,7 @@
 - [x] have fun!
 
 ## manUpdate.sh
-Ubuntu 14.04 update-script (will be multilingual in future)
+Ubuntu (14.04/16.04, use with caution on other distro's) update-script (will be multilingual in future)
 
 ## runKSP.sh
 small startup script for KSP under Linux :D
