@@ -1,10 +1,7 @@
 #!/bin/bash
 
-clear
 echo "[jaxx updater] .. checking for latest release"
-
-
-cd ~/jaxx.io
+cd $(dirname $0)
 
 latestSource=$(curl -s -L "https://github.com/Jaxx-io/Jaxx/releases/latest" > latest.txt)
 latestLink=$(grep 'AppImage"' latest.txt | cut -d '"' -f 2)
