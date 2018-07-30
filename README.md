@@ -1,3 +1,6 @@
+# NOTICE:
+the development of this mod moved to [GitLab](https://gitlab.com/LouisCyfer/snippets)
+
 ## snippets
 >* en: this repo contains some useful scripts and code-snippets and is yet work in progress
 >* de: Dieses Repo enthält einige Skripte und Code-Schnipsel und wird noch erweitert
